@@ -25,14 +25,35 @@ object legionDelTerror {
 	}
 
 	method disfracesRepetidos(){
-		return self.todosLosDisfraces().filter(disfraz => self.todosLosDisfraces.ocurrencesOf(disfraz)!= 1})
+	return self.todosLosDisfraces().filter({disfraz=> self.todosLosDisfraces.ocurrencesOf(disfraz)!= 1})
 	}
 	method normaSinRepetidos() {
 		self.disfracesRepetidos().forEach({ disfraz => self.sacarseloATodos(disfraz) })
 	
 	method sacarcelosAtodos(disfraz){
-		integrantes.forEach({})
-	}	
-	
+		integrantes.forEach({integrante => integrante.quitarDisfraz(disfraz)})
+	}		
 }
+
+
+
+object barrio {
+	var chicos = []
+	
+	method chicosConMasCaramelos(cantidad) {
+		return chicos 
+			.sortedBy({ x, y => x.caramelos() > y.caramelos()})
+			.take(cantidad)
+	}
+	
+	method chicos(nuevosChicos) {
+		chicos = nuevosChicos
+	}
+
+	method algunoMuyAsustador() {
+		return chicos.any({ chico => chico.capacidadSusto() > 42 })
+	}
+}
+
+
 

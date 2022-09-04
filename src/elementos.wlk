@@ -23,7 +23,7 @@ object mascaraDracula {
 }
 
 object mascaraFrankenstein {
-	method nivelsusto(){
+	method nivelSusto(){
 		return 22
 	}
 }
@@ -40,7 +40,5 @@ object mascaraPolitico {
 		promesasCampania +=2
 	}
 	}
-
-	
 
 
