@@ -26,6 +26,15 @@ object macaria {
 	method quitarDisfraz(elemento){
 		disfraces.remove(elemento)
 	}
+	method elementoMenosEfectivo() {
+		return disfraces.min({ disfraz => disfraz.nivelSusto() })
+	}
+
+
+	method dejarDeUsarMenosEfectivo() {
+		self.quitarDisfraz(self.elementoMenosEfectivo())
+	}
+	
 }
 
 object pancracio {
@@ -78,6 +87,9 @@ object pedro {
 	}
 	method quitarDisfraz(elemento) {
 		disfraces.remove(elemento)
+	}
+	method tirarTodosLosDisfraces(){
+		disfraces.clear()
 	}
 	
 	
