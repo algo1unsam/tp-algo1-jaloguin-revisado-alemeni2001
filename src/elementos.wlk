@@ -11,6 +11,10 @@ object barba {
 		return longitud * 5
 	}
 	
+	method nuevaLongitud(valor){
+		longitud=valor
+	}
+	
 }
 
 object mascaraDracula {

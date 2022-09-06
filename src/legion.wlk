@@ -20,20 +20,22 @@ object legionDelTerror {
 	method recibirCaramelos(cantidad) {
 		self.lider().recibirCaramelos(cantidad)
 	}
-	method todosLosDisfraces(disfraz) {
-		integrantes.forEach({integrante => integrante.quitarDisfraz(disfraz)})
+		method todosLosDisfraces() {
+		return integrantes.map({ chico => chico.disfraces().asSet() }).flatten()
+	}
+	method disfracesRepetidos() {
+		return self.todosLosDisfraces().filter({ x => self.todosLosDisfraces().occurrencesOf(x) > 1 })
 	}
 
-	method disfracesRepetidos(){
-	return self.todosLosDisfraces().filter({disfraz=> self.todosLosDisfraces.ocurrencesOf(disfraz)!= 1})
+	method sacarseloATodos(disfraz) {
+		integrantes.forEach({ x => x.quitarDisfraz(disfraz) })
 	}
 	method normaSinRepetidos() {
 		self.disfracesRepetidos().forEach({ disfraz => self.sacarseloATodos(disfraz) })
-	
-	method sacarcelosAtodos(disfraz){
-		integrantes.forEach({integrante => integrante.quitarDisfraz(disfraz)})
-	}		
+	}
 }
+	
+
 
 
 
